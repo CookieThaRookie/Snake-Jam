@@ -1,12 +1,4 @@
 # Snake-Jam
-Sneks
+Theme: Snakes
 
-Prototype to do:
-[ ] Test out snake movement
-  [ ] Connecting bodyparts (increment over time)
-  [ ] Controls
-[ ] Procedural generate rooms/levels
-[ ] Basic enemy AI
-  [ ] Move away from specific object (snake head)
-  [ ] Shoot at given intervals
-[ ] Bullets ricochetting  
+This is a small three day jam, put together to strengthen our coding and Unity skills. 
