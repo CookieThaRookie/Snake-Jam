@@ -46,7 +46,7 @@ public class SnakeMovement : MonoBehaviour
         BodyParts[0].Translate(BodyParts[0].up * curSpeed * Time.smoothDeltaTime, Space.World); //Moves the head of the snake forward
 
         if (Input.GetAxis("Horizontal") != 0)
-            BodyParts[0].Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal")); //Vector 3 forward is UP in 2D. Rotate around this
+            BodyParts[0].Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * (Input.GetAxis("Horizontal") * -1)); //Vector 3 forward is UP in 2D. Rotate around this
 
         for (int i = 1; i < BodyParts.Count; i++)
         {
