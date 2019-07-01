@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -146,6 +147,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794d28d0d4f5c7d4387a2acfb0ebee97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 2045844284}
+  smoothSpeed: 0.8
+  offset: {x: 0, y: 0, z: -1}
+  EnemyInRange: 20
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -218,12 +235,12 @@ PrefabInstance:
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.69
+      value: 20.09
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.48
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
@@ -292,12 +309,12 @@ PrefabInstance:
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.69
+      value: 23.91
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.17
+      value: 5.49
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
@@ -366,12 +383,12 @@ PrefabInstance:
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.25
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.59
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
@@ -440,7 +457,7 @@ PrefabInstance:
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.09
+      value: 22.380001
       objectReference: {fileID: 0}
     - target: {fileID: 7895687574849684546, guid: c978b9b247f989f42abe1e4f351f23bf,
         type: 3}
@@ -610,3 +627,9 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.04}
   serializedVersion: 2
   m_Radius: 0.82
+--- !u!4 &2045844284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8752312163747444418, guid: 90a04f0931186324eb54c391ff41baaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2045844281}
+  m_PrefabAsset: {fileID: 0}
