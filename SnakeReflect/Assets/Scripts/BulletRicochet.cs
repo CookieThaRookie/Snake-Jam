@@ -23,7 +23,7 @@ public class BulletRicochet : MonoBehaviour
 
         Ray2D ray = new Ray2D(transform.position, transform.right);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, distanceToHit, collisionMask);
-        if (hit.collider != null && hit.transform.tag == "Wall")
+        if (hit.collider != null)
         {
             Debug.Log("Hit");
             Debug.DrawLine(ray.origin, hit.point);
