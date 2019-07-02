@@ -10,21 +10,28 @@ public class CamFollow : MonoBehaviour
 
     public Vector3 offset;
 
+    public float rangeInFront = 1; //Value to determine how far ahead of the snake the camera should be
+
     public float EnemyInRange = 10;
     private GameObject Enemy;
     private GameObject[] Enemies;
 
     // Update is called once per frame
     void LateUpdate() //Use Fixed instead if too jittered
-    { 
-        Vector3 directPosition = Target.position + offset; //No smoothing position
-        Vector3 enemiesPosition = EnemyMidpoint() - Target.position; //Find the midpoint of big groupings
-        Vector3 desiredPosition = directPosition + enemiesPosition;
+    {
+        Vector3 aheadOf = (Target.transform.up * rangeInFront) + Target.position; //Position in front of snake
+        Debug.DrawLine(Target.position, aheadOf, Color.cyan);
+
+        //Vector3 directPosition = Target.position + offset; //No smoothing position
+
+        Vector3 enemiesPosition = EnemyMidpoint(); //Find the midpoint of big groupings
+        Debug.DrawLine(transform.position, enemiesPosition, Color.red);
+
+        Vector3 desiredPosition = aheadOf + offset; //The position the camera should move towards
+        Debug.DrawLine(transform.position, desiredPosition, Color.blue);
+
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
-
-        Debug.DrawLine(transform.position, enemiesPosition, Color.red);
-        Debug.DrawLine(transform.position, desiredPosition, Color.blue);
     }
 
     /// <summary>

@@ -160,8 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2045844284}
-  smoothSpeed: 0.8
+  smoothSpeed: 5
   offset: {x: 0, y: 0, z: -1}
+  rangeInFront: 5
   EnemyInRange: 20
 --- !u!20 &519420031
 Camera:
@@ -586,7 +587,12 @@ PrefabInstance:
     - target: {fileID: 8752312165057900981, guid: 90a04f0931186324eb54c391ff41baaa,
         type: 3}
       propertyPath: speed
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752312165057900981, guid: 90a04f0931186324eb54c391ff41baaa,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8752312163747444419, guid: 90a04f0931186324eb54c391ff41baaa,
         type: 3}
