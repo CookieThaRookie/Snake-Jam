@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Floor
+  - Start
+  - End
   layers:
   - Default
   - TransparentFX
@@ -13,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Wall
+  - Floor
   - 
   - 
   - 
@@ -40,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 1492226679
+    locked: 0
+  - name: StartOrEnd
+    uniqueID: 2118590025
+    locked: 0
+  - name: Floor
+    uniqueID: 3167684881
     locked: 0
