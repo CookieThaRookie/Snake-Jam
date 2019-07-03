@@ -9,6 +9,7 @@ TagManager:
   - Start
   - End
   - SnakeHead
+  - Enemy
   layers:
   - Default
   - TransparentFX
