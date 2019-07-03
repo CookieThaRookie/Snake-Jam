@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Start
   - End
+  - SnakeHead
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,15 @@ TagManager:
   - UI
   - 
   - 
+  - Snake
+  - Camera
   - Wall
+
   - Floor
   - 
+
+
+
   - 
   - 
   - 
