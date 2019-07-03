@@ -15,6 +15,7 @@ public class CamFollow : MonoBehaviour
     public float EnemyInRange = 10;
     private GameObject Enemy;
     private GameObject[] Enemies;
+    private int enemiesCount = 0;
 
     // Update is called once per frame
     void LateUpdate() //Use Fixed instead if too jittered
@@ -24,10 +25,24 @@ public class CamFollow : MonoBehaviour
 
         //Vector3 directPosition = Target.position + offset; //No smoothing position
 
-        Vector3 enemiesPosition = EnemyMidpoint(); //Find the midpoint of big groupings
-        Debug.DrawLine(transform.position, enemiesPosition, Color.red);
+        Vector3 enemiesMidpoint = EnemyMidpoint();
+        Vector3 enemiesPosition = enemiesMidpoint - aheadOf; //Find the midpoint of big groupings
+        Debug.DrawLine(aheadOf, enemiesMidpoint, Color.red);
 
-        Vector3 desiredPosition = aheadOf + offset; //The position the camera should move towards
+        Vector3 desiredPosition = new Vector3();
+
+        if (enemiesMidpoint != Vector3.zero)
+        {
+            float eCount = enemiesCount;
+            float enemyCountWeight = 1- 0.5f * (1 / eCount);
+            enemiesPosition = enemiesPosition * enemyCountWeight;
+            desiredPosition = aheadOf + offset + enemiesPosition; //The position the camera should move towards
+        }
+        else
+        {
+            desiredPosition = aheadOf + offset;
+        }
+        
         Debug.DrawLine(transform.position, desiredPosition, Color.blue);
 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
@@ -41,19 +56,31 @@ public class CamFollow : MonoBehaviour
     Vector3 EnemyMidpoint()
     {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Vector3 compPosition = new Vector3();
+
+        float totalX = 0;
+        float totalY = 0;
+
+        enemiesCount = 0;
 
         foreach (GameObject Enemy in Enemies)
         {
             Vector2 distance = Target.position - Enemy.transform.position;
             if (distance.sqrMagnitude < EnemyInRange * EnemyInRange) //Square the compared for faster calculation
             {
-                print(Enemy.name);
-                compPosition += Enemy.transform.position;
+                totalX += Enemy.transform.position.x;
+                totalY += Enemy.transform.position.y;
+                enemiesCount++;
             }
         }
 
+        float midX = totalX / enemiesCount;
+        float midY = totalY / enemiesCount;
+        Vector3 compPosition = new Vector3(midX, midY, 0);
+
         Vector3 middle;
-        return middle = compPosition / Enemies.Length;
+        if (enemiesCount > 0)
+            return middle = compPosition;
+        else
+            return Vector3.zero;
     }
 }
