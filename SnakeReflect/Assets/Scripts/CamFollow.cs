@@ -31,16 +31,17 @@ public class CamFollow : MonoBehaviour
         Debug.DrawLine(aheadOf, enemiesMidpoint, Color.red);
 
         Vector3 desiredPosition = new Vector3();
+        float desiredSize = viewSize;
 
         if (enemiesMidpoint != Vector3.zero) //Only add enemies vector if within range
         {
-            float eCount = enemiesCount;
-            float enemyCountWeight = 1 - 0.5f * (1 / eCount);
-            enemiesPosition = enemiesPosition * enemyCountWeight;
-            desiredPosition = aheadOf + offset + enemiesPosition; //The position the camera should move towards
+            float eCount = enemiesCount; //Need to be a float to work
+            float enemyCountWeight = 1 - 0.5f * (1 / eCount); //How close camera is to enemies, is dependent on amount
+            desiredPosition = aheadOf + offset + (enemiesPosition * enemyCountWeight); //The position the camera should move towards
 
-            float desiredCameraSize = 10 - (10 * (1 / eCount)); //Get the size dependent on enemy count
-            //Unused for now
+            Vector3 distanceToEnemy = enemiesMidpoint - Target.position; //From head to enemy midpoint
+            float distanceWeight = distanceToEnemy.magnitude / EnemyInRange; //Weight 1 to 0
+            desiredSize = (viewSize * 2) * enemyCountWeight * distanceWeight; //Size doubles, dependent on enemy and distance weight
         }
         else
         {
@@ -49,8 +50,14 @@ public class CamFollow : MonoBehaviour
         
         Debug.DrawLine(transform.position, desiredPosition, Color.blue);
 
+        //Lerp the camera position to smooth it
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
+
+        //Lerp the camera size to smooth it
+        float currentSize = this.GetComponent<Camera>().orthographicSize;
+        float smoothedSize = Mathf.Lerp(currentSize, desiredSize, smoothSpeed * Time.deltaTime);
+        this.GetComponent<Camera>().orthographicSize = smoothedSize;
     }
 
     /// <summary>
