@@ -6,6 +6,7 @@ public class CamFollow : MonoBehaviour
 {
     public Transform Target;
 
+    public float viewSize = 10;
     public float smoothSpeed;
 
     public Vector3 offset;
@@ -31,12 +32,15 @@ public class CamFollow : MonoBehaviour
 
         Vector3 desiredPosition = new Vector3();
 
-        if (enemiesMidpoint != Vector3.zero)
+        if (enemiesMidpoint != Vector3.zero) //Only add enemies vector if within range
         {
             float eCount = enemiesCount;
-            float enemyCountWeight = 1- 0.5f * (1 / eCount);
+            float enemyCountWeight = 1 - 0.5f * (1 / eCount);
             enemiesPosition = enemiesPosition * enemyCountWeight;
             desiredPosition = aheadOf + offset + enemiesPosition; //The position the camera should move towards
+
+            float desiredCameraSize = 10 - (10 * (1 / eCount)); //Get the size dependent on enemy count
+            //Unused for now
         }
         else
         {
