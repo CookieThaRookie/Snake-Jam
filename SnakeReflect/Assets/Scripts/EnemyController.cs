@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
             if (direction.magnitude < 1)
                 return;
 
-            print("Moving!");
+            
             MoveAway();
         }
 

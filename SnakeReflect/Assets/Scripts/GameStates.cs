@@ -20,10 +20,17 @@ public class GameStates : MonoBehaviour
             victoryText.SetActive(true);
         }
 
-        if(collision.gameObject.tag == "Bullet")
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Collider2D wantedCollider = this.GetComponent<CircleCollider2D>();
+
+        if (collision.gameObject.tag == "Bullet" && wantedCollider.IsTouching(collision.collider))
         {
             print("Entered Bullet trigger");
-            victoryText.SetActive(true);
+            defeatText.SetActive(true);
         }
     }
 

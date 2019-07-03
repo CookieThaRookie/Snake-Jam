@@ -25,7 +25,7 @@ public class BulletRicochet : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, distanceToHit, collisionMask);
         if (hit.collider != null)
         {
-            Debug.Log("Hit");
+            
             Debug.DrawLine(ray.origin, hit.point);
             Vector2 vectorReflect = Vector2.Reflect(ray.direction, hit.normal);
             float rot = 90 - Mathf.Atan2(vectorReflect.x, vectorReflect.y) * Mathf.Rad2Deg;
