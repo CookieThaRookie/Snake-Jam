@@ -5,64 +5,40 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Floor
-  - Start
-  - End
-  - SnakeHead
-
-  - Bullet
-
-  - Enemy
-
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-  -
-  -
-  - Snake
-  - Camera
+  - 
+  - 
   - Wall
-  - Floor
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Floor
-    uniqueID: 3167684881
-    locked: 0
-  - name: Wall
-    uniqueID: 1492226679
-    locked: 0
-  - name: StartOrEnd
-    uniqueID: 2118590025
-    locked: 0
-  - name: Bullet
-    uniqueID: 2155895589
-    locked: 0
-  - name: Player
-    uniqueID: 2507682289
     locked: 0
