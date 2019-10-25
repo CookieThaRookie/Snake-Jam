@@ -213,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355735579}
   - component: {fileID: 1355735578}
+  - component: {fileID: 1355735580}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -282,6 +283,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1355735580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355735577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e572e84689c344d9716dbf7bbb47f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  turnSpeed: 200
 --- !u!1 &1693754460
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,10 +352,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 1, z: 0}
-  - {x: 1, y: 1, z: 0}
-  - {x: 0, y: 0, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -422,5 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecf5bf6f2d4ecd478cee7046e7636e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPoints: 50
   pointSpacing: 0.1
   head: {fileID: 1355735579}

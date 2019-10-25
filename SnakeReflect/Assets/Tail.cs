@@ -6,9 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Tail : MonoBehaviour
 {
+    public int maxPoints = 25;
     public float pointSpacing = .1f; // How far to move before we fraw new point
     public Transform head;
-
+    
     List<Vector2> points;
 
     LineRenderer line;
@@ -29,13 +30,29 @@ public class Tail : MonoBehaviour
         // We only want to set a new point if we have moved far enough away
         if (Vector3.Distance(points.Last(), head.position) > pointSpacing)
             SetPoint();
+
+        if (points.Count > maxPoints)
+        {
+            points.RemoveAt(0);
+        }
     }
 
     void SetPoint()
     {
+        /* OLD somewhat working code
         points.Add(head.position);
 
         line.positionCount = points.Count;
         line.SetPosition(points.Count - 1, head.position);
+        */
+
+        points.Add(head.position);
+
+        line.positionCount = points.Count;
+        
+        for (int i = 0; i < points.Count; i++)
+        {
+            line.SetPosition(i, points[i]);
+        }
     }
 }
