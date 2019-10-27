@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(EdgeCollider2D))]
 public class Tail : MonoBehaviour
 {
     public int maxPoints = 25;
@@ -13,11 +14,13 @@ public class Tail : MonoBehaviour
     List<Vector2> points;
 
     LineRenderer line;
+    EdgeCollider2D col;
 
     // Start is called before the first frame update
     void Start()
     {
         line = GetComponent<LineRenderer>();
+        col = GetComponent<EdgeCollider2D>();
 
         points = new List<Vector2>();
 
@@ -46,10 +49,14 @@ public class Tail : MonoBehaviour
         line.SetPosition(points.Count - 1, head.position);
         */
 
+        // Add points to edge collider
+        col.points = points.ToArray<Vector2>();
+
         points.Add(head.position);
 
         line.positionCount = points.Count;
         
+        // We place all the vectors in points into the linerenderer
         for (int i = 0; i < points.Count; i++)
         {
             line.SetPosition(i, points[i]);

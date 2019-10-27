@@ -19,4 +19,9 @@ public class MovementController : MonoBehaviour
             Space.Self); // Translate next based on own position
         transform.Rotate(Vector3.forward * -horizontal * turnSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+    }
 }
