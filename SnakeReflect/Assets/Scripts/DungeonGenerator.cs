@@ -47,8 +47,8 @@ public class DungeonGenerator : MonoBehaviour
         float MaxY = 0f;
 
         System.Random rnd = new System.Random();
-        
 
+        int previousRand = rnd.Next(0, listOfRooms.Count);
 
         for (int i = 0; i < roomAmount; i++)
         {
@@ -83,13 +83,20 @@ public class DungeonGenerator : MonoBehaviour
             
             GameObject currentRoom = null;
 
+            int currentRand = rnd.Next(0, listOfRooms.Count);
+
+            if(currentRand == previousRand)
+            {
+                currentRand = rnd.Next(0, listOfRooms.Count);
+            }
+
             if (i == (roomAmount - 1))
             {
                 currentRoom = Instantiate(finishRoom, new Vector3(0, MaxY, 0), Quaternion.identity);
             }
             else
             {
-                currentRoom = Instantiate(listOfRooms[rnd.Next(0,listOfRooms.Count)], new Vector3(0, MaxY, 0), Quaternion.identity);
+                currentRoom = Instantiate(listOfRooms[currentRand], new Vector3(0, MaxY, 0), Quaternion.identity);
             }
 
             currentRoom.transform.parent = grid.transform;

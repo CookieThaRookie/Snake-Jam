@@ -201,6 +201,7 @@ MonoBehaviour:
   - {fileID: 76404306566949192, guid: d47f02e028d2e2346a7efcb14ed06dcf, type: 3}
   - {fileID: 593653819368960220, guid: d574f4ccb197b164aa46048dd3d995f5, type: 3}
   - {fileID: 6672161687564918185, guid: 5333b4ed87765d140835470e5f40bb08, type: 3}
+  - {fileID: 5397960902163769936, guid: 0c6dcfd23c6e3de4aab2b521cbb785d9, type: 3}
   finishRoom: {fileID: 2854668420385757528, guid: a0476562fdadb25428805084a86df5ea,
     type: 3}
 --- !u!4 &1297883955
