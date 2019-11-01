@@ -60,7 +60,7 @@ public class DungeonGenerator : MonoBehaviour
                 if (tempCount != 0)
                 {
                     
-                    if (t != null && t.gameObject != null)
+                    if (t != null && t.gameObject != null && t.gameObject.tag != "Enemy")
                     {
                         tilemapsOfLastRoom.Add(t.gameObject.GetComponent<Tilemap>());
                     }
