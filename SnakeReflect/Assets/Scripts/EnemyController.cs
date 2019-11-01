@@ -33,9 +33,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         direction = Target.transform.position - transform.position; //Find the direction vector towards Target
-        
+
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Calculate angle on vector
+
         // Flips the Sprite towards the player's direction
-        if(direction.x > 1)
+        if (direction.x > 1)
         {
             spriteRenderer.flipX = false;
         }
