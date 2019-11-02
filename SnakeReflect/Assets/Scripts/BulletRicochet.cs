@@ -35,7 +35,7 @@ public class BulletRicochet : MonoBehaviour
             numberOfBounces--;
         }
 
-        if (numberOfBounces == 0)
+        if (numberOfBounces <= 0)
         {
             Destroy(this.gameObject, 0);
         }

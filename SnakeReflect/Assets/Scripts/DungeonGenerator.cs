@@ -40,13 +40,15 @@ public class DungeonGenerator : MonoBehaviour
 
     private void GenerateRooms()
     {
+        System.Random rnd = new System.Random();
+
         GameObject currentStartRoom = Instantiate(startRoom, new Vector3(0, 0, 0), Quaternion.identity);
         currentStartRoom.transform.parent = grid.transform;
 
         GameObject lastRoom = currentStartRoom;
         float MaxY = 0f;
 
-        System.Random rnd = new System.Random();
+        
 
         int previousRand = rnd.Next(0, listOfRooms.Count);
 
@@ -63,6 +65,18 @@ public class DungeonGenerator : MonoBehaviour
                     if (t != null && t.gameObject != null && t.gameObject.tag != "Enemy")
                     {
                         tilemapsOfLastRoom.Add(t.gameObject.GetComponent<Tilemap>());
+                    }
+
+                    else if (t != null && t.gameObject != null && t.gameObject.tag == "Enemy")
+                    {
+                        
+
+                        int spawnchance = rnd.Next(0, 100);
+
+                        if (spawnchance < 30)
+                        {
+                            t.gameObject.SetActive(false);
+                        }
                     }
                 }
 
