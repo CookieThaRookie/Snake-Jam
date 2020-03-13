@@ -21,17 +21,14 @@ public class EnemyController : MonoBehaviour
     private float nextFire = 0;
     private GameObject Target;
     private SpriteRenderer spriteRenderer;
-    private GameObject mainCameraObject;
-    private Camera mainCamera;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         Target = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        mainCameraObject = GameObject.FindGameObjectWithTag("MainCamera");
-        mainCamera = mainCameraObject.GetComponent<Camera>();
+
+        
     }
 
     // Update is called once per frame
@@ -60,28 +57,26 @@ public class EnemyController : MonoBehaviour
                 return;
 
             print("Moving!");
-            KeepDistance();
+            MoveAway();
         }
 
         //Shooting intervals
         if (shootingAllowed && Time.time > nextFire)
         {
-            Shoot(direction);
+            Shoot();
             nextFire = Time.time + rateOfFire;
         }
     }
 
-    void Shoot(Vector2 direction)
+    void Shoot()
     {
-        if (Mathf.Abs(direction.y) < mainCamera.orthographicSize || Mathf.Abs(direction.x) < mainCamera.orthographicSize)
-        {
-            GameObject Bullet = Instantiate(BulletType, this.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
-            //Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed);
-            Destroy(Bullet, deleteBulletAFter);
-        }
+        
+        GameObject Bullet = Instantiate(BulletType, this.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        //Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed);
+        Destroy(Bullet, deleteBulletAFter);
     }
 
-    void KeepDistance()
+    void MoveAway()
     {
         transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, -1 * movementSpeed * Time.deltaTime);
     }

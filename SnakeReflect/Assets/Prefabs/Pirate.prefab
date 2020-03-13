@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b129e9c07491ced48af55dc2854b3bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAtDistance: 5
+  moveAtDistance: 1
   movementSpeed: 1
   BulletType: {fileID: 7436379819501806345, guid: 17fb94f32b8ebb7448965f273ab77b4a,
     type: 3}

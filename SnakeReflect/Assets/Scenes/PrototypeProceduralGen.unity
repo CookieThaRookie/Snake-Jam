@@ -280,7 +280,7 @@ MonoBehaviour:
   listOfRooms:
   - {fileID: 4160123735146835480, guid: 147d1c87fc989e241b0a1488154d39dc, type: 3}
   - {fileID: 4474036860524159849, guid: 048b0daf25f274d47863ed2ffd698954, type: 3}
-  - {fileID: 8245557035640182705, guid: 763896aef1b2fc542a18b6f8227b5868, type: 3}
+  - {fileID: 8162535528014487948, guid: 763896aef1b2fc542a18b6f8227b5868, type: 3}
   finishRoom: {fileID: 1981950116495326472, guid: 6365ce07012e75d419a10eaaa442fe9e,
     type: 3}
 --- !u!4 &1297883955
