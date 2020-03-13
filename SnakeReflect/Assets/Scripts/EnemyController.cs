@@ -27,15 +27,6 @@ public class EnemyController : MonoBehaviour
     {
         Target = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-
-        System.Random rnd = new System.Random();
-
-        int spawnchance = rnd.Next(0, 100);
-
-        if(spawnchance < 40)
-        {
-            this.gameObject.SetActive(false);
-        }
     }
 
     // Update is called once per frame
