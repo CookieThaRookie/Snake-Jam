@@ -28,7 +28,14 @@ public class EnemyController : MonoBehaviour
         Target = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        
+        System.Random rnd = new System.Random();
+
+        int spawnchance = rnd.Next(0, 100);
+
+        if(spawnchance < 40)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -70,7 +77,7 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
-        
+        print("Pew");
         GameObject Bullet = Instantiate(BulletType, this.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
         //Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed);
         Destroy(Bullet, deleteBulletAFter);
